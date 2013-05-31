@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Go Steel Programmers</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="theme/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Go Steel Programmers</h1></header>
+            
+            
+            <section><h2>Beginners Guide to using Public Tools with Go</h2>
+<p>Phil Pennock, Apcera Inc.</p>
+<p><a href="https://github.com/syscomet">https://github.com/syscomet</a></p>
+<p>We'll get this up on <a href="http://www.go-steel-programmers.org/">http://www.go-steel-programmers.org/</a> and the talk's git
+repo on GitHub.</p>
+<p>Nomenclature:</p>
+<ul>
+<li>Go Programming Language.</li>
+<li>Golang &mdash; used for disambiguation, in #tags, etc; eg:
+  <a href="https://twitter.com/search?q=%23golang">Twitter #golang</a></li>
+<li>&ldquo;Go&rdquo; for short, in context.</li>
+</ul>
+<p><em>(This presentation made with <a href="https://github.com/adamzap/landslide">Landslide</a>.)</em></p>
+<p><img alt="Golang" src="images/golang-logo.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>An Apology</h1></header>
+            
+            
+            <section><p>Normally, I try to create slide-sets which augment a talk, where the talk is
+recorded or somesuch and the speach is more important.</p>
+<p>In this case, I opted for more of a prose style.  I can read out each slide
+laboriously, or I can shove it up on screen for folks and talk around it,
+answering questions.  I'm going to do the latter.</p>
+<p>This way, the slides will be available as reference material later.</p>
+<p>But this approach might fail miserably.  Please, don't let it fail miserably.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Go Docs &amp; Playground</h1></header>
+            
+            
+            <section><p>Most Go presentations seem to reference various features provided by the Go
+project itself.  We'll keep that to just this slide.</p>
+<p>You should definitely know about the online documentation, a production running
+instance of godoc.</p>
+<ol>
+<li>Run <code>godoc -http=:6060</code> and point a web-browser at <a href="http://localhost:6060/">http://localhost:6060/</a></li>
+<li>Or just go to <a href="http://golang.org/">http://golang.org/</a></li>
+</ol>
+<p>The main other tool you should get in the habit of using is the Go Playground</p>
+<ul>
+<li><a href="http://play.golang.org/">http://play.golang.org/</a></li>
+<li>Lets you type code in the browser, run it, share links to it.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Okay, a second slide</h1></header>
+            
+            
+            <section><p><a href="http://play.golang.org/">http://play.golang.org/</a></p>
+<p><img alt="Go Playground snapshot" src="images/golang-playground.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Directory Layout</h1></header>
+            
+            
+            <section><h2>Boring</h2>
+<p>Much like <code>$PATH</code> or <code>$CLASSPATH</code>, building go code uses <code>$GOPATH</code>.  On
+Unix-like systems, that's a colon-separated list of dirs.  On Windows,
+semi-colons are used.  Unlike $PATH, Go uses a fixed layout within each entry.</p>
+<p>Run <code>ls $(go env GOROOT)</code> to see the system code.  Pick a place to anchor your
+main work.  I use <code>~/src/go</code>.  So code I write is in <code>~/src/go/src/...</code>.
+Libraries installed with <code>go install</code> go into <code>~/src/go/pkg/$GOOS_$GOARCH/</code>,
+commands into <code>~/src/go/bin/</code>.</p>
+<p>If you're writing code that deals with checking stuff out automatically, please
+do allow for multiple entries and take just the first element in the list.  In
+    shell, that's <code>${GOPATH%%:*}</code>.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Automatic Fetching</h1></header>
+            
+            
+            <section><h2>Interesting</h2>
+<p>Much more interesting, <code>go get</code>, <code>go install</code>, etc can understand if an import
+path has a hostname embedded in it and grok how to auto-fetch code, including
+dependencies, recursively.  So if you can build entirely using Go project build
+rules, everything needed to build can be fetched, if not already present, just
+with <code>go install site.tld/top/level/cmd</code>.</p>
+<p>The details are documented at: <a href="http://golang.org/doc/code.html#remote">http://golang.org/doc/code.html#remote</a></p>
+<p>This affects how you write the code:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">package</span> <span class="n">main</span>
+<span class="k">import</span> <span class="s">&quot;github.com/syscomet/namespace_test&quot;</span>
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">namespace_test</span><span class="p">.</span><span class="n">Demonstration</span><span class="p">(</span><span class="s">&quot;Go Steel Programmers&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+<p>Downside: hosting site is in the source code.  But the prefix parts of the path
+are not part of the code namespace, even without using a renaming import.  Thus
+<code>namespace_test.</code> and the only parts to change are the import lines.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Git</h1></header>
+            
+            
+            <section><p>That was a code fetch using a version control system.  Go supports several.  It
+doesn't matter much which you use, but Git is currently the In Thing with wide
+support and some nice features.</p>
+<p>It doesn't matter too much which version control system you use, as long as Go
+supports it.</p>
+<p>Beware: Git also has horribly bad default command-line commands (the
+"porcelain"), with an attitude of "just write porcelain which does what you
+want", combining with traditional geek macho, to keep the default commands
+complicated and confusing until you get used to them.</p>
+<p>It's powerful, it's good, but don't try learning Git all at once and accept
+that you'll learn it in bits and pieces.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Git Tools</h1></header>
+            
+            
+            <section><ul>
+<li>
+<p><code>git instaweb</code> &mdash; runs a web-server wrapper around <code>gitweb.cgi</code> and
+    points a browser at it, for browsing the repo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">[browser &quot;firefox&quot;]</span>
+    <span class="na">path</span> <span class="o">=</span> <span class="s">/Applications/Firefox.app/Contents/MacOS/firefox</span>
+<span class="k">[instaweb]</span>
+    <span class="na">local</span> <span class="o">=</span> <span class="s">true</span>
+<span class="s">    browser = firefox</span>
+</pre></div>
+</td></tr></table>
+</li>
+<li>
+<p>Storing password credentials in OSX keychain, or other native password
+  management, is worthwhile to set up.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">[credential]</span>
+    <span class="na">helper</span> <span class="o">=</span> <span class="s">osxkeychain</span>
+</pre></div>
+</td></tr></table>
+</li>
+<li>
+<p>Passphrase-based SSH with ssh-agent is your friend; set the public keys
+  for the services you want to access.</p>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Distributed Version Control</h1></header>
+            
+            
+            <section><p>Basic revision control lets you check in files, check them out, check in
+changes, and look back to get the content at any previous point in time,
+generating diffs as wanted.  Where you check them into might be a sub-directory
+(SCCS, RCS), a central server, or "anywhere".</p>
+<p>In place of a mandatory central server, DVCS have a model where folks don't
+normally retrieve just the most recent version.  Instead, they keep a local
+copy of the entire history so that most operations are local.</p>
+<p>The content can then be reconciled between instances, on the same host or
+remotely, over HTTP, SSH or other stuff, depending upon the DVCS.</p>
+<p>Once you have this, you can <em>choose</em> to make some location canonical, or
+preferred, particularly if it provides useful additional tools.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Exim</h1></header>
+            
+            
+            <section><p>Exim uses Git, the canonical store is on <a href="http://git.exim.org/">git.exim.org</a>.
+But we also use GitHub, <a href="https://github.com/Exim/exim">https://github.com/Exim/exim</a>.  Pushes to the
+canonical store are automatically pushed to GitHub.</p>
+<p><img alt="Exim repositories" src="images/exim-repos.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>GitHub</h1></header>
+            
+            
+            <section><p>I'm using GitHub for this talk.  I don't work for them.  But they're decent and
+there's a reason I'm using them as the example, and that my employer uses them
+and an Open Source project I'm involved with increasingly uses them.</p>
+<p>There are a few sites providing Git hosting with augmented tools.  Currently,
+probably the most popular is GitHub.  Free unlimited hosting for public
+repositories, my employer is a customer of the private repository support.</p>
+<p>At a low level, the most important thing provided is a production-quality
+staffed Git hosting facility, available over a couple of protocols, with decent
+authentication infrastructure.</p>
+<p>On top of that, are some decent sharing tools for choosing who gets commit
+access, some adequate light code review and bug-tracking systems (optional),
+wiki hosting, site hosting for simple static sites which are git checkouts.</p>
+<p>And then the magic: hooks</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>GitHub Hooks</h1></header>
+            
+            
+            <section><p>Post commit details to IRC, trigger regression tests, update bug-tracking systems &hellip;</p>
+<p>A webhook, fundamentally, is &ldquo;take some data representing an event, POST
+it to a URL, and perhaps take action based on the response code&rdquo;.</p>
+<p>Add authorisation tokens that can be embedded in a URL, and a standard encoding
+format (typically JSON) and you're getting somewhere.</p>
+<p>Add in a protocol translator site, taking site A's event and changing it to
+something understood by site B and you have something powerful.  Provide a
+library of those translations as part of the generating site and you can:</p>
+<ol>
+<li>talk natively to a wide variety of sites with very simple template values
+   supplied</li>
+<li>generate the data to let folks plug code into <em>any</em> other site.</li>
+</ol>
+<p>https://github.com/$account/$project/admin/hooks
+Eg: <a href="https://github.com/syscomet/sks_spider/admin/hooks">https://github.com/syscomet/sks_spider/admin/hooks</a></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Example project: sks_spider</h1></header>
+            
+            
+            <section><p>We'll see this used a bit, might as well explain it a little.</p>
+<p>This is just some code I wrote, rewriting a Python WSGI app to be a Golang
+HTTP server; in the process, it became faster and more responsive, using less
+CPU and less RAM.  I'm using it as an example because it's on GitHub, has
+tests, and is using Travis CI for Continuous Integration testing.</p>
+<p>Project specific stuff that's boring if you don't like the topic:</p>
+<ul>
+<li>PGP keyservers store public keys and signatures for the Web-of-Trust</li>
+<li>The current main keyserver implementation is SKS, written in OCaml, which
+  synchronises keys between keyservers using a reconciliation protocol.</li>
+<li>Each keyserver "peers" with one or more other keyserver, thus there is a
+  peering mesh.</li>
+<li>Walking the mesh and checking the status of keyservers, counting the keys,
+  etc, lets public pools of servers be published in DNS.</li>
+<li>This is a research/exploration project, not the code used for the main public
+  pool</li>
+<li>Running at: <a href="http://sks.spodhuis.org/sks-peers">http://sks.spodhuis.org/sks-peers</a></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Downside to <code>sks_spider</code></h1></header>
+            
+            
+            <section><p>I used a btree project which was written using the gotgo preprocessor to
+support templates. It's powerful and pleasant, but not at all supported by the
+normal build system.</p>
+<p>Downside: normal build process doesn't work</p>
+<p>Upside: I get to show a bit more about Travis configuration</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1><code>go test</code></h1></header>
+            
+            
+            <section><p>The Go build system will skip files with names matching <code>*_test.go</code> when
+creating a library or binary; instead, the <code>go test</code> command takes those files
+and combines them into a test binary, supplying <code>func main()</code> itself.</p>
+<p>Functions with signatures matching <code>func TestFoo(t *testing.T)</code> for some Foo
+will be candidates for running in a test.</p>
+<p>The <code>sks_spider</code> program currently has too few tests, but it has some: Go makes
+it easy and I'm gradually building them up.</p>
+<pre><code>% go test -v github.com/syscomet/sks_spider
+=== RUN TestCountrySpodhuis
+--- PASS: TestCountrySpodhuis (0.01 seconds)
+=== RUN TestCountrySets
+--- PASS: TestCountrySets (0.00 seconds)
+countries_test.go:80:   Countryset OK: NL,UK,US
+=== RUN TestDepthSnapshot
+--- PASS: TestDepthSnapshot (0.02 seconds)
+depth_test.go:55:       Depth OK; 84 entries, max distance 3
+PASS
+ok      github.com/syscomet/sks_spider  0.048s
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Continuous Integration</h1></header>
+            
+            
+            <section><p>Loosely: every time you push a change to the repository, it triggers a CI
+system to fetch the code, build it, run the tests and report the results.  When
+it generates a status badge, you can include that badge into even README.md
+files to provide a convenient status report.  APIs will let you build more
+comprehensive dashboards.</p>
+<p><a href="https://travis-ci.org/syscomet/sks_spider">https://travis-ci.org/syscomet/sks_spider</a></p>
+<p><img alt="sksklzzwxh:0039spider README.md render, start" src="images/sks_spider_readme.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Travis CI</h1></header>
+            
+            
+            <section><p>Two ways to configure the pairing GitHub &lrarr; Travis link:</p>
+<ol>
+<li>Step through the process carefully, <a href="http://about.travis-ci.org/docs/user/how-to-setup-and-trigger-the-hook-manually/">it's documented</a></li>
+<li>Grant Travis CI (via OAuth) permission to make the changes to your GitHub repo for you.</li>
+</ol>
+<p>It basically boils down to generating a token on the Travis site, and
+configuring a commit hook on GitHub.  Since it's a public repository, there's
+no auth required to fetch the content.  Things are more involved for private
+repositories.  Then, by default, pushes will trigger a test.  That simple?</p>
+<p><img alt="Travis CI top" src="images/travis_sks_spider_top.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>.travis.yml</h1></header>
+            
+            
+            <section><p>Okay, you need to tell Travis <em>how</em> to test your project.  Most simply:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">go</span>
+</pre></div>
+</td></tr></table>
+<p>That's it.
+Because Go has a built-in test framework, that's normally all that's needed.</p>
+<p>The configuration is in YAML and the most relevant additional top-level keys
+are <code>script</code> and <code>install</code>, each of which can be a list of multiple steps.</p>
+<p>In Travis, the steps are combined into shell input, so you can set variables
+in earlier steps and use them in later steps.</p>
+<p>Travis works in <code>~/builds/</code> to start, but for Go will create <code>~/gopath/src/</code>
+and <code>export GOPATH=~/gopath</code> so that <code>go get</code> paths all work.  The content is
+pulled as a git checkout of the version that triggered a commit, linked into
+place, and your current working directory is inside your project dir (under
+<code>$GOPATH</code>), so that you can access <code>data/</code> files with relative paths.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>A better .travis.yml</h1></header>
+            
+            
+            <section><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">go</span>
+
+<span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go vet</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go test -v</span>
+</pre></div>
+</td></tr></table>
+<p>The <code>go vet</code> command will catch things like .Printf() calls with mismatches in
+%-expandos against the supplied arguments.  I've not seen a false positive yet,
+thus so far I consider it a test failure if <code>go vet</code> complains.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>sks_spider .travis.yml</h1></header>
+            
+            
+            <section><p>This is the complexity you create for yourself by breaking out of pure Go build
+compatibility.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">go</span>
+
+<span class="l-Scalar-Plain">install</span><span class="p-Indicator">:</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">SPIDER_DIR=&quot;github.com/syscomet/sks_spider&quot;</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">BTREE_DIR=&quot;github.com/runningwild/go-btree&quot;</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">GOTGO_DIR=&quot;github.com/droundy/gotgo/gotgo&quot;</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">CHECKOUT_TOP=&quot;${GOPATH%%:*}/src&quot;</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go get -fix -d -v &quot;$BTREE_DIR&quot;</span>
+ <span class="p-Indicator">-</span> <span class="s">&quot;(</span><span class="nv"> </span><span class="s">cd</span><span class="nv"> </span><span class="s">\&quot;$CHECKOUT_TOP/$BTREE_DIR\&quot;</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">rm</span><span class="nv"> </span><span class="s">bench.go</span><span class="nv"> </span><span class="s">test.go</span><span class="nv"> </span><span class="s">)&quot;</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go get -d &quot;$GOTGO_DIR&quot;</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go build -v &quot;$GOTGO_DIR&quot;</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">./gotgo -o &quot;$CHECKOUT_TOP/$BTREE_DIR/btree.go&quot; &quot;$CHECKOUT_TOP/$BTREE_DIR/btree.got&quot; string</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go get -d -v</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go build -v sks_stats_daemon.go</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go test -i</span>
+
+<span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go vet</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">go test -v</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Too hot!  Too cold!</h1></header>
+            
+            
+            <section><p>By default, Travis runs on every commit.  This is good when your first commits
+to get Travis working are on a <code>travis_setup</code> branch.</p>
+<p>Quickly, you get to where you want commits, say, only on the main branch and on
+pull requests.  Configure it, and it shall be so.
+This too goes in <code>.travis.yml</code>.</p>
+<p>Magic phrase in commit message: <code>[ci skip]</code></p>
+<pre><code>sks_spider$ git log
+</code></pre>
+<p>Recent addition: easy UI to force a retry when something failed because of a
+transient glitch (eg, fetch from GitHub failed).</p>
+<p><img alt="Travis Rebuild item in drop-down" src="images/travis-rebuild.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Git pre-commit</h1></header>
+            
+            
+            <section><p>You can't run your own code on GitHub to verify a push.
+It's not your service and the security implications would be awkward.
+If you run your own central repository, you <strong>can</strong> do this.</p>
+<p>You can run pre-commit scripts to check before you even commit into your local
+repository.  But beware that the pre-commit scripts are not natively part of
+the repository, because you shouldn't be running arbitrary unseen code when you
+run a local git command whenever you pull content.</p>
+<p>So <code>$repo/.git/hooks/pre-commit</code> will need to be manually created when you set
+up your checkout.</p>
+<p>A good approach is to keep a collection of trusted pre-commit scripts in a repo.</p>
+<p>A trusting approach is to create <code>git-hooks/</code> within your repo and create
+<code>pre-commit</code> as a symlink pointing to <code>../../git-hooks/pre-commit</code> &mdash; instant
+security hole, if anyone else can commit.  I've done this with sks_spider for
+demonstration purposes.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Pre-commit steps</h1></header>
+            
+            
+            <section><ol>
+<li>Use <code>foo=$(git config hooks.foo)</code> to grab any config items from
+   <code>$repo/.git/config</code></li>
+<li>The content in the working directory at the time is not the content being
+   committed; you need to ensure that what you test is what's part of the commit.<ul>
+<li>git stash --keep-index --all --quiet</li>
+<li>git reset --hard --quiet; git stash pop --index --quiet</li>
+</ul>
+</li>
+<li>We run the first two of these by default, the second two only if asked:<ol>
+<li>go vet</li>
+<li>go fmt -l -e $File</li>
+<li>go build</li>
+<li>go test</li>
+</ol>
+</li>
+</ol>
+<p>Further, additional build targets can be added, to exercise the <code>package main</code>
+wrappers.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>From the Audience</h1></header>
+            
+            
+            <section><ul>
+<li>Learning Go: <a href="http://tour.golang.org/">http://tour.golang.org/</a> is a great tutorial</li>
+<li><a href="http://labix.org/gocheck">http://labix.org/gocheck</a>: <code>gocheck</code> is a better testing framework for apps:</li>
+</ul>
+<blockquote>
+<p>The Go language provides an internal testing library, named testing, which is relatively slim due to the fact that the standard library correctness by itself is verified using it. The gocheck package, on the other hand, expects the standard library from Go to be working correctly, and builds on it to offer a richer testing framework for libraries and applications to use.</p>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation-2012-11-29.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Fin</h1></header>
+            
+            
+            <section><p>Will be linked to from <a href="http://www.go-steel-programmers.org/">http://www.go-steel-programmers.org/</a></p>
+<p>&copy; Apcera, Inc. 2012</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/deed.en_US"><img alt="Creative Commons License" src="images/CC-BY-88x31.png" /></a>
+This work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/deed.en_US">Creative Commons Attribution 3.0 United States License</a>.</p>
+<!-- vim: set sw=4 et wrap : --></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation-2012-11-29.md">presentation-2012-11-29.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              25/25
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">Go Steel Programmers</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">An Apology</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Go Docs &amp; Playground</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Okay, a second slide</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Directory Layout</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Automatic Fetching</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Git</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Git Tools</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Distributed Version Control</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">Exim</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">GitHub</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">GitHub Hooks</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Example project: sks_spider</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Downside to <code>sks_spider</code></a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15"><code>go test</code></a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">Continuous Integration</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">Travis CI</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">.travis.yml</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">A better .travis.yml</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">sks_spider .travis.yml</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">Too hot!  Too cold!</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">Git pre-commit</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">Pre-commit steps</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-24">
+        <th><a href="#slide24">From the Audience</a></th>
+        <td><a href="#slide24">24</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-25">
+        <th><a href="#slide25">Fin</a></th>
+        <td><a href="#slide25">25</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

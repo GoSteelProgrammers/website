@@ -1,0 +1,16 @@
+port:		4000
+baseurl:	/
+url:		"http://newsite.go-steel-programmers.org/"
+description:	"Go Steel Programmers"
+
+source:		.
+destination:	./_site
+exclude:	['README.md', 'CNAME']
+
+authors:
+  Phil:
+    name: Phil Pennock
+
+asset_pipeline:
+  compress: true
+  output_path: assets
