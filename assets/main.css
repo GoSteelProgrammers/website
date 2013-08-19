@@ -1,0 +1,43 @@
+/*
+ *  Style Borrowed from golang.com
+ *
+ *  Primary Blue: #375eab
+ *  Light Blue: #e0ebf5
+ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font: 14px Helvetica, Arial;
+    color: black;
+    line-height: 1.5;
+}
+
+h1 {
+    background-color: #e0ebf5;
+    padding: 20px;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+h2, h3 {
+    background: none;
+    color: #375eab;
+    font-size: 20px;
+}
+
+a {
+    color: #375eab;
+}
+
+div.content, footer {
+    margin: 10px 40px;
+}
+
+img#pgh {
+    float: right;
+    margin: 20px;
+    padding: 10px;
+    border: solid 1px #ccc;
+    background: white;
+}
