@@ -1,3 +1,12 @@
+@charset "UTF-8";
+/* text/css utf-8
+ *
+ * This is the CSS for Go Steel Programmers.
+ */
+
+/* Always use https, even if we're http, accept the minor latency hit */
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
+
 /*
  *  Style Borrowed from golang.com
  *
@@ -40,4 +49,20 @@ img#pgh {
     padding: 10px;
     border: solid 1px #ccc;
     background: white;
+}
+
+/* After here, not borrowed. */
+
+/* Monospace: prefer Source Code Pro, ask for that as a web-font,
+ * anything after the first web-font is a fall-back preference list for
+ * local fonts.  No point in asking for N>1 remote fonts where only the
+ * first would be used.
+ */
+
+tt, code, kbd, samp, xmp, pre, plaintext {
+    font-family: "Source Code Pro", "Inconsolata", "Droid Sans Mono", monospace;
+}
+
+.filename, .hostname, .code-fragment, .irc-channel {
+    font-family: "Source Code Pro", "Inconsolata", "Droid Sans Mono", monospace;
 }
