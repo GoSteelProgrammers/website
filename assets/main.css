@@ -63,6 +63,6 @@ tt, code, kbd, samp, xmp, pre, plaintext {
     font-family: "Source Code Pro", "Inconsolata", "Droid Sans Mono", monospace;
 }
 
-.filename, .hostname, .code-fragment, .irc-channel {
+.filename, .hostname, .code-fragment, .irc-channel, .reponame {
     font-family: "Source Code Pro", "Inconsolata", "Droid Sans Mono", monospace;
 }
